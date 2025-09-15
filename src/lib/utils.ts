@@ -11,6 +11,7 @@ export function cn(...inputs: ClassValue[]) {
  */
 export function buildImageUrl(url: string | undefined): string {
   if (!url) return "";
+  debugger;
 
   // If URL is already absolute, return as-is
   if (process.env.NODE_ENV === "production") {
@@ -18,6 +19,6 @@ export function buildImageUrl(url: string | undefined): string {
   }
 
   // For relative URLs, prepend the base URL
-  const baseUrl = process.env.NEXT_PUBLIC_IMAGES_URL || "";
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "";
   return `${baseUrl}${url}`;
 }

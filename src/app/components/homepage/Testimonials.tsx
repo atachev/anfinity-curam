@@ -115,15 +115,16 @@ const Testimonials = ({ clients }: { clients: any }) => {
               </Text>
               <div className="flex items-center mt-[23px] h-[57px]">
                 {testimonials && testimonials.length > 0 && (
-                  <Image
-                    src={`${buildImageUrl(
+                  <img
+                    src={buildImageUrl(
                       clients?.length > 0
                         ? testimonials[index]?.clientIcon?.url
                         : clients?.icon?.url
-                    )}`}
+                    )}
                     alt={testimonials && testimonials[index]?.name}
                     width={57}
                     height={57}
+                    className="w-[57px] h-[57px] object-cover rounded-full"
                   />
                 )}
                 <div className="ml-3 text-left">

@@ -10,7 +10,6 @@ export function cn(...inputs: ClassValue[]) {
  * Handles both relative and absolute URLs from CMS
  */
 export function buildImageUrl(url: string | undefined): string {
-  debugger;
   if (!url) return "";
 
   // If URL is already absolute, return as-is

@@ -6,7 +6,6 @@ import Sticky from "@/components/homepage/Sticky";
 import InfiniteLogos from "@/components/homepage/InfiniteLogos";
 
 export default function HomePage() {
-  console.log("it works!");
   return (
     <main>
       <Hero />

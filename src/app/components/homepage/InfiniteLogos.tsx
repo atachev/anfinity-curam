@@ -18,7 +18,7 @@ const brands: Brand[] = [
   },
   {
     image: <NovaMemorialLogo />,
-    link: "https://novamemorial.bg",
+    link: "https://novamemorial.com",
     alt: "Digital memorial book",
   },
   {
@@ -105,7 +105,9 @@ const InfiniteLogoSlider = () => {
               rel="noopener noreferrer external"
               target="_blank"
             >
-              <div className="h-[67px] flex items-center opacity-[0.3]">{brand.image}</div>
+              <div className="h-[67px] flex items-center opacity-[0.3]">
+                {brand.image}
+              </div>
             </Link>
           ))}
         </div>
@@ -147,7 +149,9 @@ const InfiniteLogoSlider = () => {
               rel="noopener noreferrer external"
               target="_blank"
             >
-              <div className="h-[67px] flex items-center opacity-[0.3]">{brand.image}</div>
+              <div className="h-[67px] flex items-center opacity-[0.3]">
+                {brand.image}
+              </div>
             </Link>
           ))}
         </div>

@@ -116,7 +116,7 @@ const MobileSlider = ({
                   <span
                     className={`Gilroy-Regular text-[50px] font-[400] leading-[50px] tracking-[-0.01em] text-[#FF7F11]`}
                   >
-                    {step.id}
+                    0{index + 1}
                   </span>
                   <Heading
                     as="h3"

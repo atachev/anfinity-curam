@@ -1,0 +1,438 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * @license
+ * MyFonts Webfont Build ID 3398760, 2017-05-31T08:25:58-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: Gilroy-Regular by Radomir Tinkov
+ * URL: https://www.myfonts.com/fonts/radomir-tinkov/gilroy/regular/
+ * 
+ * Webfont: Gilroy-Bold by Radomir Tinkov
+ * URL: https://www.myfonts.com/fonts/radomir-tinkov/gilroy/bold/
+ * 
+ * 
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3398760
+ * Licensed pageviews: 10,000
+ * Webfonts copyright: Copyright &#x00A9; 2016 by Radomir Tinkov. All rights reserved.
+ * 
+ * © 2017 MyFonts Inc
+*/
+
+@import "../../public/fonts/MyFontsWebfontsKit.css";
+
+.Gilroy-Regular {
+  font-family: Gilroy-Regular;
+  font-weight: normal;
+  font-style: normal;
+}
+.Gilroy-Bold {
+  font-family: Gilroy-Bold;
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --anf-primary-red: 229, 29, 40;
+}
+
+@layer components {
+  .header-bg-red {
+    background-color: rgb(var(--anf-primary-red));
+  }
+
+  .font-poppins {
+    font-family: var(--font-poppins);
+  }
+
+  .nav-link {
+    font-family: var(--font-poppins);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: 0;
+    @apply transition-colors text-white hover:text-white/80;
+  }
+  button {
+    font-family: var(--font-poppins);
+  }
+
+  .hero-bg-red {
+    background-color: rgb(var(--anf-primary-red));
+  }
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+@keyframes animated_dots {
+  0% {
+    transform: translateZ(0) rotate(0deg);
+  }
+  to {
+    transform: translate3d(10px, 30px, 0) rotate(-5deg);
+  }
+}
+
+@keyframes animated_bottom_dots {
+  0% {
+    transform: translateZ(0) rotate(0deg);
+  }
+  to {
+    transform: translate3d(-10px, -30px, 0) rotate(5deg);
+  }
+}
+@keyframes firstSliderAnimation {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(6%);
+  }
+  100% {
+    transform: translateX(-2%);
+  }
+}
+
+@keyframes secondSliderAnimation {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(12%);
+  }
+  100% {
+    transform: translateX(-2%);
+  }
+}
+
+@keyframes dotWave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1px); /* Move up */
+  }
+}
+
+@keyframes pulsing {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes slashCycle {
+  0% {
+    transform: rotate(0deg);
+    stroke: white;
+  }
+
+  10% {
+    transform: rotate(20deg);
+  }
+
+  20% {
+    transform: rotate(20deg);
+    stroke: white;
+  }
+
+  30% {
+    transform: rotate(20deg);
+    stroke: rgba(255, 255, 255, 0.3);
+  }
+
+  40% {
+    transform: rotate(20deg);
+    stroke: white;
+  }
+
+  50% {
+    transform: rotate(20deg);
+    stroke: rgba(255, 255, 255, 0.3);
+  }
+
+  60% {
+    transform: rotate(20deg);
+    stroke: white;
+  }
+
+  70% {
+    transform: rotate(20deg);
+    stroke: rgba(255, 255, 255, 0.3);
+  }
+
+  80% {
+    transform: rotate(20deg);
+    stroke: white;
+  }
+
+  90% {
+    transform: rotate(20deg);
+    stroke: rgba(255, 255, 255, 0.3);
+  }
+
+  100% {
+    transform: rotate(0deg);
+    stroke: white;
+  }
+}
+
+@keyframes reveal-up {
+  0% {
+    transform: translateY(6%);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.animate-reveal-up {
+  animation: reveal-up .6s ease-out forwards;
+}
+
+body {
+  margin: 40px;
+}
+@media screen and (max-width: 600px) {
+  body {
+    margin: 40px 5px;
+  }
+}
+
+/* embla carousel */
+
+.embla {
+  max-width: 100%;
+  margin: auto;
+  --slide-size: 87%;
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 330px;
+}
+
+/* for the mobile version of the process section */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.transform-style-preserve {
+  transform-style: preserve-3d;
+}
+
+/* logos slider styles */
+@keyframes slideAnim {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.looper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.looper__innerList {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+}
+
+.looper__innerList[data-animate="true"] .looper__listInstance {
+  animation: slideAnim linear infinite;
+}
+
+.looper__listInstance {
+  display: flex;
+  width: max-content;
+  animation: none;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ticker-reverse {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.ticker-track {
+  animation: ticker 80s linear infinite;
+  display: flex;
+  width: max-content;
+  flex: none;
+  justify-content: space-around;
+}
+
+.ticker-track-reverse {
+  animation: ticker-reverse 30s linear infinite;
+  display: flex;
+  width: max-content;
+  flex: none;
+  justify-content: space-around;
+}
+
+.email-link {
+  color: #8f8f8f;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0%;
+}
+
+.phone-link {
+  color: #8f8f8f;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0%;
+}
+
+.email-link:hover,
+.phone-link:hover {
+  color: #e51d28;
+}
+
+@media screen and (min-width: 641px) {
+  .first-slider-animation {
+    animation: firstSliderAnimation 6s ease-in-out infinite alternate;
+  }
+
+  .second-slider-animation {
+    animation: secondSliderAnimation 9s ease-in-out infinite alternate;
+  }
+
+  .animated-dots {
+    animation: animated_dots 3s ease-in-out infinite alternate;
+  }
+
+  .animated-bottom-dots {
+    animation: animated_bottom_dots 3s ease-in-out infinite alternate;
+  }
+
+  .slash {
+    transform-origin: 268.8px 571.18px;
+    animation: slashCycle 8s ease-in-out infinite;
+  }
+
+  .orbit {
+    animation: spin 3s linear infinite;
+    transform-origin: 288.87px 237.34px; /* center of the white circle */
+  }
+
+  .pulsing-dot {
+    animation: pulsing 2s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+    overflow: visible;
+  }
+
+  .g-dot path {
+    animation: dotWave 1.5s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+    overflow: visible;
+  }
+
+  /* Add staggered delays for wave effect */
+  .g-dot path:nth-child(4n) {
+    animation-delay: 0s;
+  }
+  .g-dot path:nth-child(4n + 1) {
+    animation-delay: 0.2s;
+  }
+  .g-dot path:nth-child(4n + 2) {
+    animation-delay: 0.4s;
+  }
+  .g-dot path:nth-child(4n + 3) {
+    animation-delay: 0.6s;
+  }
+}
+
+p {
+  margin: 22px 0;
+}
+ol, ul {
+  list-style: disc;
+  padding-left: 24px;
+}

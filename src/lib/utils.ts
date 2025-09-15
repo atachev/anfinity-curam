@@ -16,8 +16,7 @@ export function buildImageUrl(url: string | undefined): string {
   if (process.env.NODE_ENV === "production") {
     return url;
   }
-
   // For relative URLs, prepend the base URL
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "";
+  const baseUrl = process.env.NEXT_PUBLIC_IMAGES_URL || "";
   return `${baseUrl}${url}`;
 }

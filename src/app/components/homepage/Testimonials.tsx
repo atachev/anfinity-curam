@@ -18,6 +18,7 @@ const Testimonials = ({ clients }: { clients: any }) => {
           clientIcon: client?.icon,
         }))
       );
+      console.log("Processed testimonials:", allTestimonials);
       setTestimonials(allTestimonials);
     } else {
       setTestimonials(clients?.testimonials);

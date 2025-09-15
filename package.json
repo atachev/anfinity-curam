@@ -30,7 +30,7 @@
     "react-google-recaptcha-v3": "^1.11.0",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
-    "sharp": "^0.34.3",
+    "sharp": "^0.33.1",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7"
   },

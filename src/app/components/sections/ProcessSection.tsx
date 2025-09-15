@@ -1,6 +1,6 @@
 import SectionHeader from "../homepage/SectionHeader";
 import ProcessSlider from "../ProcessSlider";
-import Text from "../Text";
+import Text from "@/components/Text";
 
 const ProcessSection = ({
   steps,

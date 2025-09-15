@@ -5,7 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import SectionHeader from "./SectionHeader";
-import Text from "../Text";
+import Text from "@/components/Text";
 import { buildImageUrl } from "@/lib/utils";
 
 const Testimonials = ({ clients }: { clients: any }) => {

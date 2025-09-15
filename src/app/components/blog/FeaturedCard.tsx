@@ -1,6 +1,6 @@
 import Heading from "../Heading";
 import Arrow from "../icons/Arrow";
-import Text from "../Text";
+import Text from "@/components/Text";
 import Link from "next/link";
 import Image from "next/image";
 

@@ -3,9 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { motion } from "motion/react";
 import useEmblaCarousel from "embla-carousel-react";
 import Heading from "../Heading";
-import icons from "@/assets/icons-card-placeholder.svg";
-import Text from "../Text";
-import Image from "next/image";
+import Text from "@/components/Text";
 import { buildImageUrl } from "@/lib/utils";
 
 const testimonials = [
@@ -83,9 +81,7 @@ const FeaturesWrapper = ({
             {features.map((feature, index) => (
               <motion.div key={index} className=" max-w-[100%] md:max-w-[80%]">
                 <div className="flex flex-col md:flex-row w-full md:h-[672px]">
-                  <div
-                    className="rounded-[35px] md:rounded-[40px] w-[330px] md:w-[556px] overflow-hidden"
-                  >
+                  <div className="rounded-[35px] md:rounded-[40px] w-[330px] md:w-[556px] overflow-hidden">
                     <img
                       src={buildImageUrl(feature?.image?.url)}
                       alt={feature.title}

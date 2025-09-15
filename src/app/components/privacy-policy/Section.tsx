@@ -1,5 +1,5 @@
 import Heading from "../Heading";
-import Text from "../Text";
+import Text from "@/components/Text";
 
 interface SectionProps {
   title: string;

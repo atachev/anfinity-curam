@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Heading from "../Heading";
-import Text from "../Text";
+import Text from "@/components/Text";
 
 const CARD_WIDTH = 281;
 const CARD_GAP = 50;

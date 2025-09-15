@@ -1,5 +1,5 @@
 import Heading from "../Heading";
-import Text from "../../components/Text";
+import Text from "@/components/Text";
 import { remark } from "remark";
 import html from "remark-html";
 

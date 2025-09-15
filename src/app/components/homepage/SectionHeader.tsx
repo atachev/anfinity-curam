@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Heading from "../Heading";
-import Text from "../Text";
+import Text from "@/components/Text";
 
 type Props = {
   title: string;

@@ -1,6 +1,6 @@
 import { remark } from "remark";
 import html from "remark-html";
-import Text from "../../components/Text";
+import Text from "@/components/Text";
 import Link from "next/link";
 
 interface InnerPageHeroProps {

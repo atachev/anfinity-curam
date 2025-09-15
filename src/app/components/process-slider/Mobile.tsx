@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Heading from "../Heading";
-import Text from "../Text";
+import Text from "@/components/Text";
 import { motion } from "motion/react";
 
 interface ProcessStep {
@@ -14,7 +14,15 @@ interface ProcessStep {
 
 const CARD_WIDTH = 281;
 const CARD_GAP = 20; // match the gap in .flex
-const MobileSlider = ({ steps, primaryColor, secondaryColor }: { steps: ProcessStep[], primaryColor: string, secondaryColor: string }) => {
+const MobileSlider = ({
+  steps,
+  primaryColor,
+  secondaryColor,
+}: {
+  steps: ProcessStep[];
+  primaryColor: string;
+  secondaryColor: string;
+}) => {
   const [activeStep, setActiveStep] = useState(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,

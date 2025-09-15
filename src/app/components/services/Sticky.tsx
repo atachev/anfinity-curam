@@ -1,7 +1,7 @@
 import SectionHeader from "../homepage/SectionHeader";
 import Testimonials from "../homepage/Testimonials";
 import ProcessSlider from "../ProcessSlider";
-import Text from "../Text";
+import Text from "@/components/Text";
 import { getClients } from "@/lib/fetchers/getClients";
 
 export default async function ServiceSticky({ process }: { process: any[] }) {

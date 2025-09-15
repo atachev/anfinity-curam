@@ -1,5 +1,5 @@
 import SectionHeader from "./SectionHeader";
-import Button from "../Button";
+import Button from "@/components/Button";
 import StudyCard from "../studies/StudyCard";
 import { getCaseStudies } from "@/lib/fetchers/getCaseStudies";
 

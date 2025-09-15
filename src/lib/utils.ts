@@ -10,8 +10,8 @@ export function cn(...inputs: ClassValue[]) {
  * Handles both relative and absolute URLs from CMS
  */
 export function buildImageUrl(url: string | undefined): string {
-  if (!url) return "";
   debugger;
+  if (!url) return "";
 
   // If URL is already absolute, return as-is
   if (process.env.NODE_ENV === "production") {

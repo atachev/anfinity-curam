@@ -96,14 +96,14 @@ const InnerPageHero = ({
               <span className="font-poppins text-[16px] leading-[22px] font-[600]">
                 website:
               </span>
-              <Link
+              <a
                 className="font-poppins text-[16px] leading-[22px] font-[600] text-[#8f8f8f] hover:text-[#e51d28] transition-all duration-300 ease-in-out"
                 href={website}
                 rel="noopener noreferrer external"
                 target="_blank"
               >
                 {website}
-              </Link>
+              </a>
             </div>
           )}
           {industry && (

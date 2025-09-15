@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://anfinity.bg
+
+# Sitemaps
+Sitemap: https://anfinity.bg/sitemap.xml

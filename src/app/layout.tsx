@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function RootLayout({
   children,
@@ -19,6 +20,7 @@ export default function RootLayout({
         />
       </head>
       <Analytics />
+      <SpeedInsights />
       <GoogleTagManager gtmId="GTM-TZSQQH3T" />
       <GoogleAnalytics gaId="G-PM2J7J77WY" />
       <body>

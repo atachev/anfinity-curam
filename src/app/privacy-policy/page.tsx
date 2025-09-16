@@ -1,6 +1,33 @@
+import type { Metadata } from "next";
 import ListingPageHero from "@/components/heros/ListingPageHero";
 import Section from "@/components/privacy-policy/Section";
 import Text from "@/components/Text";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://anfinity.bg"),
+  title: "Privacy Policy | anfinity",
+  description:
+    "Learn how Anfinity collects, stores, and protects your data. We value your privacy and comply with GDPR and EU regulations.",
+  alternates: { canonical: "/privacy-policy" },
+  openGraph: {
+    type: "website",
+    url: "https://anfinity.bg/privacy-policy",
+    title: "Privacy Policy | anfinity",
+    description:
+      "Anfinity’s privacy policy explains how we collect, process, and protect user data in compliance with GDPR and EU regulations.",
+    siteName: "anfinity",
+    images: [
+      {
+        url: "https://anfinity.bg/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Privacy Policy - anfinity",
+      },
+    ],
+  },
+  robots: { index: true, follow: true },
+};
+
 const PrivacyPolicy = () => {
   return (
     <div>

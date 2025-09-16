@@ -8,8 +8,8 @@ export const useWindow = () => {
 export const useMediaQuery = () => {
   const window = useWindow();
 
-  const [mobileOnly, setMobileOnly] = useState<boolean>(false);
-  const [aboveMobile, setAboveMobile] = useState<boolean>(false);
+  const [mobileOnly, setMobileOnly] = useState<boolean | null>(null);
+  const [aboveMobile, setAboveMobile] = useState<boolean | null>(null);
 
   useEffect(() => {
     const mobileOnlyMedia = window?.matchMedia(
@@ -34,8 +34,8 @@ export const useMediaQuery = () => {
 
   return {
     /** 0px to 600px */
-    mobileOnly,
+    mobileOnly: mobileOnly ?? false,
     /** above 601px */
-    aboveMobile,
+    aboveMobile: aboveMobile ?? false,
   };
 };

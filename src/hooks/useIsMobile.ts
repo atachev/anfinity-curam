@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const MOBILE_BREAKPOINT = 640;
 
 export const useIsMobile = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -19,5 +19,6 @@ export const useIsMobile = () => {
     return () => window.removeEventListener("resize", checkIsMobile);
   }, []);
 
-  return isMobile;
+  // Return false during SSR and initial render to prevent hydration mismatch
+  return isMobile ?? false;
 };

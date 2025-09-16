@@ -138,46 +138,48 @@ const Testimonials = ({ clients }: { clients: any }) => {
             </motion.div>
           </AnimatePresence>
 
-          <div className="flex flex-row gap-5 flex md:hidden mt-[72px] justify-center">
-            <button
-              style={{
-                cursor: "pointer",
-                padding: "16px 0 ",
-              }}
-              onClick={prevTestimonial}
-              className="text-red-500 text-xl"
-            >
-              <svg
-                width="47"
-                height="18"
-                viewBox="0 0 47 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+          {testimonials && testimonials?.length > 1 && (
+            <div className="flex flex-row gap-5 flex md:hidden mt-[72px] justify-center">
+              <button
+                style={{
+                  cursor: "pointer",
+                  padding: "16px 0 ",
+                }}
+                onClick={prevTestimonial}
+                className="text-red-500 text-xl"
               >
-                <path d="M47 9L1 9" stroke="#E51D28" />
-                <path d="M9 1L1 9L9 17" stroke="#E51D28" />
-              </svg>
-            </button>
-            <button
-              style={{
-                cursor: "pointer",
-                padding: "16px 0",
-              }}
-              onClick={nextTestimonial}
-              className="text-red-500 text-xl"
-            >
-              <svg
-                width="47"
-                height="18"
-                viewBox="0 0 47 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+                <svg
+                  width="47"
+                  height="18"
+                  viewBox="0 0 47 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M47 9L1 9" stroke="#E51D28" />
+                  <path d="M9 1L1 9L9 17" stroke="#E51D28" />
+                </svg>
+              </button>
+              <button
+                style={{
+                  cursor: "pointer",
+                  padding: "16px 0",
+                }}
+                onClick={nextTestimonial}
+                className="text-red-500 text-xl"
               >
-                <path d="M0 9H46" stroke="#E51D28" />
-                <path d="M38 17L46 9L38 1" stroke="#E51D28" />
-              </svg>
-            </button>
-          </div>
+                <svg
+                  width="47"
+                  height="18"
+                  viewBox="0 0 47 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 9H46" stroke="#E51D28" />
+                  <path d="M38 17L46 9L38 1" stroke="#E51D28" />
+                </svg>
+              </button>
+            </div>
+          )}
           {testimonials && testimonials?.length > 1 && (
             <div className="mt-[76px] md:mt-6 flex gap-2 justify-center md:justify-start">
               {testimonials?.map((_, i) => (

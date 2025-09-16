@@ -24,6 +24,7 @@ const MobileSlider = ({
   secondaryColor: string;
 }) => {
   const [activeStep, setActiveStep] = useState(0);
+  const [windowWidth, setWindowWidth] = useState<number | null>(null);
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: "center",
@@ -43,10 +44,19 @@ const MobileSlider = ({
     };
   }, [emblaApi]);
 
-  const trackOffset =
-    window.innerWidth / 2 -
-    CARD_WIDTH / 2 -
-    activeStep * (CARD_WIDTH + CARD_GAP);
+  useEffect(() => {
+    const updateWindowWidth = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    updateWindowWidth();
+    window.addEventListener("resize", updateWindowWidth);
+    return () => window.removeEventListener("resize", updateWindowWidth);
+  }, []);
+
+  const trackOffset = windowWidth
+    ? windowWidth / 2 - CARD_WIDTH / 2 - activeStep * (CARD_WIDTH + CARD_GAP)
+    : 0;
 
   return (
     <div className="overflow-hidden">
@@ -54,8 +64,9 @@ const MobileSlider = ({
       <div className="relative mt-8 mb-[60px] h-[40px]">
         {/* Line behind the dots */}
         <div
-          className="absolute top-[6px] h-[1px] bg-[#FF7F11] transition-transform duration-500"
+          className="absolute top-[6px] h-[1px] transition-transform duration-500"
           style={{
+            background: primaryColor,
             width: (steps.length - 1) * (CARD_WIDTH + CARD_GAP),
             transform: `translateX(${
               activeStep === 0
@@ -87,7 +98,10 @@ const MobileSlider = ({
               onClick={() => handleDotClick(index)}
             >
               <div
-                className={`w-[12px] h-[12px] rounded-full bg-[#FF7F11] z-10`}
+                style={{
+                  background: primaryColor,
+                }}
+                className={`w-[12px] h-[12px] rounded-full z-10`}
               />
               {index === activeStep && (
                 <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[75px] h-[75px] rounded-full border border-dashed border-white bg-white/10 z-0" />
@@ -114,7 +128,10 @@ const MobileSlider = ({
               >
                 <div className="flex flex-col h-full">
                   <span
-                    className={`Gilroy-Regular text-[50px] font-[400] leading-[50px] tracking-[-0.01em] text-[#FF7F11]`}
+                    style={{
+                      color: primaryColor,
+                    }}
+                    className={`Gilroy-Regular text-[50px] font-[400] leading-[50px] tracking-[-0.01em]`}
                   >
                     0{index + 1}
                   </span>
@@ -151,10 +168,13 @@ const MobileSlider = ({
               onClick={() => handleDotClick(i)}
             >
               <span
+                style={{
+                  background: i === activeStep ? primaryColor : "#fff",
+                }}
                 className={`h-[1px] rounded-full transition-all duration-300 ${
                   i === activeStep
-                    ? "bg-[#FF7F11] w-[60px]"
-                    : "bg-gray-400 w-[33px]"
+                    ? "w-[60px]"
+                    : "w-[33px]"
                 }`}
               ></span>
             </div>

@@ -5,7 +5,11 @@ interface ClientsResponse {
 }
 
 export async function getClients() {
-  const res: ClientsResponse = await fetchAPI("clients?populate=*");
-
-  return res.data;
+  try {
+    const res: ClientsResponse = await fetchAPI("clients?populate=*");
+    return res.data || [];
+  } catch (error) {
+    console.error("Failed to fetch clients:", error);
+    return [];
+  }
 }

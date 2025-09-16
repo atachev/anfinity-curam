@@ -6,7 +6,7 @@ export async function fetchAPI<T>(
 
   if (!baseUrl) {
     console.warn(`NEXT_PUBLIC_API_URL not configured. Cannot fetch ${path}`);
-    throw new Error(`API URL not configured`);
+    return { data: [] } as T;
   }
 
   try {

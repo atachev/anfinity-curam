@@ -46,11 +46,11 @@ const brands: Brand[] = [
     link: "https://nodicastudio.bg",
     alt: "Architecture & design",
   },
-  {
-    image: <YourDeliveryLogo />,
-    link: "https://yourdelivery.ie",
-    alt: "Your Delivery",
-  },
+  // {
+  //   image: <YourDeliveryLogo />,
+  //   link: "https://yourdelivery.ie",
+  //   alt: "Your Delivery",
+  // },
 ];
 
 const InfiniteLogoSlider = () => {

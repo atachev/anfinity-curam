@@ -6,7 +6,9 @@ interface ServicesResponse {
 
 export async function getServices() {
   try {
-    const res: ServicesResponse = await fetchAPI("services?populate=*");
+    const res: ServicesResponse = await fetchAPI(
+      "services?populate=*&sort=order:asc"
+    );
     return res.data || [];
   } catch (error) {
     console.error("Failed to fetch services:", error);

@@ -12,9 +12,9 @@ export async function getCaseStudyBySlug(slug: string) {
         statusText: response.statusText,
         url: url,
       });
-      throw new Error(
-        `Failed to fetch case study: ${response.status} ${response.statusText}`
-      );
+      // throw new Error(
+      //   `Failed to fetch case study: ${response.status} ${response.statusText}`
+      // );
     }
 
     const data = await response.json();
@@ -27,6 +27,6 @@ export async function getCaseStudyBySlug(slug: string) {
     return data.data[0];
   } catch (error) {
     console.error("Error in getCaseStudyBySlug:", error);
-    throw error;
+    // throw error;
   }
 }

@@ -75,6 +75,7 @@ const DesktopSlider = ({
     <div ref={containerRef}>
       <div className="flex gap-4 px-6 md:pl-[87px] md:pr-[110px] justify-end 4xl:max-w-[1340px] mx-auto 4xl:px-[0]">
         <button
+          aria-label="Previous process step"
           style={{
             cursor: "pointer",
             padding: "16px 0 ",
@@ -95,6 +96,7 @@ const DesktopSlider = ({
           </svg>
         </button>
         <button
+          aria-label="Next process step"
           style={{
             cursor: "pointer",
             padding: "16px 0",

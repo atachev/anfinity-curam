@@ -56,6 +56,7 @@ const Testimonials = ({ clients }: { clients: any }) => {
         {testimonials && testimonials?.length > 1 && (
           <div className="flex flex-row gap-5 hidden md:flex">
             <button
+              aria-label="Previous testimonial"
               style={{
                 cursor: "pointer",
                 padding: "16px 0 ",
@@ -75,6 +76,7 @@ const Testimonials = ({ clients }: { clients: any }) => {
               </svg>
             </button>
             <button
+              aria-label="Next testimonial"
               style={{
                 cursor: "pointer",
                 padding: "16px 0",
@@ -141,6 +143,7 @@ const Testimonials = ({ clients }: { clients: any }) => {
           {testimonials && testimonials?.length > 1 && (
             <div className="flex flex-row gap-5 flex md:hidden mt-[72px] justify-center">
               <button
+                aria-label="Previous testimonial"
                 style={{
                   cursor: "pointer",
                   padding: "16px 0 ",
@@ -160,6 +163,7 @@ const Testimonials = ({ clients }: { clients: any }) => {
                 </svg>
               </button>
               <button
+                aria-label="Next testimonial"
                 style={{
                   cursor: "pointer",
                   padding: "16px 0",

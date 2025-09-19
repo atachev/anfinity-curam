@@ -27,9 +27,7 @@ const DesktopSlider = ({
   const [offset, setOffset] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [visibleCards, setVisibleCards] = useState(4);
-  const [sidePadding, setSidePadding] = useState(
-    window?.innerWidth >= BREAKPOINT ? SIDE_PADDING_LARGE : SIDE_PADDING_SMALL
-  );
+  const [sidePadding, setSidePadding] = useState(SIDE_PADDING_SMALL);
 
   useEffect(() => {
     const handleResize = () => {
@@ -46,9 +44,16 @@ const DesktopSlider = ({
       }
     };
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    if (typeof window !== "undefined") {
+      handleResize();
+      window.addEventListener("resize", handleResize);
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleResize);
+      }
+    };
   }, []);
 
   useEffect(() => {

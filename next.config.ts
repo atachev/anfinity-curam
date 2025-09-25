@@ -4,8 +4,19 @@ const nextConfig: NextConfig = {
   images: {
     domains: ["localhost"],
   },
-  // swcMinify: true,
-  // compress: true,
+  async headers() {
+    return [
+      {
+        source: "/:all*(woff2|woff)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

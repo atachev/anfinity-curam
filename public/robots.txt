@@ -2,6 +2,9 @@
 User-agent: *
 Allow: /
 
+Disallow: /*.woff$
+Disallow: /*.woff2$
+
 # Host
 Host: https://anfinity.bg
 

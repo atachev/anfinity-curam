@@ -47,7 +47,7 @@ const FeaturedCard = ({
         <div className="w-full bg-[#F8F8F8] rounded-[35px] overflow-hidden">
           <Image
             src={image}
-            alt={title}
+            alt={`${title} feature image`}
             className="rounded-[35px] transition-transform duration-500 ease-in-out group-hover:scale-[1.05]"
           />
         </div>

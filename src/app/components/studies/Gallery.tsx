@@ -85,7 +85,7 @@ const FullWidthBeforeAfter = ({ assets }: { assets: any }) => {
         itemOne={
           <ReactCompareSliderImage
             src={buildImageUrl(before.url)}
-            alt="bcnl.bg before"
+            alt={before.alternativeText || "Gallery image"}
             style={{
               borderRadius: "40px",
             }}
@@ -94,7 +94,7 @@ const FullWidthBeforeAfter = ({ assets }: { assets: any }) => {
         itemTwo={
           <ReactCompareSliderImage
             src={buildImageUrl(after.url)}
-            alt="bcnl.bg after"
+            alt={after.alternativeText || "Gallery image"}
             style={{
               borderRadius: "40px",
             }}
@@ -140,7 +140,7 @@ const Card = ({ assets }: { assets: any }) => {
         {image && (
           <img
             src={buildImageUrl(image.url)}
-            alt={image.alt || "Gallery image"}
+            alt={image.alternativeText || "Gallery image"}
             className="max-w-full h-auto object-contain"
           />
         )}
@@ -166,7 +166,7 @@ const CardBeforeAfter = ({ assets }: { assets: any }) => {
         itemOne={
           <ReactCompareSliderImage
             src={buildImageUrl(before.url)}
-            alt="bcnl.bg before"
+            alt={before.alternativeText || "Gallery image"}
             style={{
               borderRadius: "40px",
             }}
@@ -175,7 +175,7 @@ const CardBeforeAfter = ({ assets }: { assets: any }) => {
         itemTwo={
           <ReactCompareSliderImage
             src={buildImageUrl(after.url)}
-            alt="bcnl.bg after"
+            alt={after.alternativeText || "Gallery image"}
             style={{
               borderRadius: "40px",
             }}

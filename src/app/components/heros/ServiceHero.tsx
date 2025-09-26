@@ -254,7 +254,7 @@ const ServiceHero = ({
                   src={buildImageUrl(icon?.url)}
                   width={550}
                   height={550}
-                  alt="Web Development Icon"
+                  alt={`${title} service icon`}
                   className="h-full object-contain"
                   loading="lazy"
                 />

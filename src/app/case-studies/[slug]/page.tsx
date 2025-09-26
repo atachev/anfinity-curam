@@ -104,7 +104,7 @@ export default async function CaseStudyPage({
                     quality={100}
                     unoptimized={true}
                     src={buildImageUrl(image.url)}
-                    alt={image.alt}
+                    alt={image.alternativeText}
                     width={400}
                     height={300}
                   />
@@ -126,7 +126,7 @@ export default async function CaseStudyPage({
                       width: "100%",
                     }}
                     src={buildImageUrl(image.url)}
-                    alt={image.alt}
+                    alt={image.alternativeText}
                     width={1360}
                     height={842}
                   />

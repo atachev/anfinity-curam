@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   title: "Let’s build your product, contact us | anfinity",
   description:
     "Tell us about your project. We’ll align on goals, scope, and timelines, and propose the right product team to deliver.",
-  alternates: { canonical: "/contact" },
+  alternates: { canonical: "/contacts" },
   openGraph: {
     type: "website",
-    url: "https://anfinity.bg/contact",
+    url: "https://anfinity.bg/contacts",
     title: "Let’s build your product, contact us | anfinity",
     description:
       "Tell us about your project. We’ll align on goals, scope, and timelines, and propose the right product team to deliver.",

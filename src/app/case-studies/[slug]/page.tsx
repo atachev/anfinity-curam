@@ -45,8 +45,8 @@ export async function generateMetadata({
       siteName: "anfinity",
       images: [
         {
-          // url: cs.heroImage || `${base}/og/case-studies/${params.slug}.jpg`,
-          url: "https://anfinity.bg/og-image.jpg",
+          url: cs.headlineImages[0].url || `https://anfinity.bg/og-image.jpg`,
+          // url: "https://anfinity.bg/og-image.jpg",
           width: 1200,
           height: 630,
           alt: cs.title,

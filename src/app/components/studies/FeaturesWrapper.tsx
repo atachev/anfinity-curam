@@ -84,7 +84,7 @@ const FeaturesWrapper = ({
                   <div className="rounded-[35px] md:rounded-[40px] w-[330px] md:w-[556px] overflow-hidden">
                     <img
                       src={buildImageUrl(feature?.image?.url)}
-                      alt={feature.title}
+                      alt={feature?.image?.alternativeText || "Feature image"}
                     />
                   </div>
                   <div className="flex flex-col justify-between rounded-[40px] bg-[#F8F8F8] pt-[64px] pb-[66px] px-[64px] w-[330px] md:w-[556px]">
@@ -93,11 +93,11 @@ const FeaturesWrapper = ({
                         color: primaryColor,
                       }}
                       as="h3"
-                      className="Gilroy-Bold text-[22px] md:text-[50px] leading-[27px] md:leading-[50px] tracking-[-0.01em] text-[#4747B2]"
+                      className="Gilroy-Bold text-[22px] md:text-[50px] leading-[27px] md:leading-[50px] tracking-[-0.01em] text-[#4747B2] select-none"
                     >
                       {feature.title}
                     </Heading>
-                    <Text className="font-poppins font-light text-[#000] text-[16px] leading-[22px]">
+                    <Text className="font-poppins font-light text-[#000] text-[16px] leading-[22px] select-none">
                       {feature.description}
                     </Text>
                   </div>

@@ -126,7 +126,7 @@ export default async function CaseStudyPage({
                       width: "100%",
                     }}
                     src={buildImageUrl(image.url)}
-                    alt={image.alternativeText}
+                    alt={image?.alternativeText || "Case study image"}
                     width={1360}
                     height={842}
                   />

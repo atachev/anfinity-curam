@@ -5,6 +5,7 @@ import Heading from "../Heading";
 import Text from "@/components/Text";
 
 type Props = {
+  component?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   title: string;
   subtitle?: string;
   titleColor?: string;
@@ -12,6 +13,7 @@ type Props = {
 };
 
 const SectionHeader = ({
+  component = "h2",
   title,
   subtitle,
   titleColor = "#000",
@@ -22,7 +24,7 @@ const SectionHeader = ({
   return (
     <div>
       <Heading
-        as="h2"
+        as={component}
         style={{
           maxWidth: isContactsPath ? "480px" : "365px",
           color: titleColor,

@@ -16,6 +16,7 @@ import FeaturesWrapper from "@/components/studies/FeaturesWrapper";
 import StatisticsWrapper from "@/components/studies/StatisticsWrapper";
 import { buildImageUrl } from "@/lib/utils";
 import Gallery from "@/components/studies/Gallery";
+import HeadlineMedia from "@/components/studies/HeadlineMedia";
 
 export async function generateMetadata({
   params,
@@ -81,60 +82,10 @@ export default async function CaseStudyPage({
         description={study.description}
         mainColor={study?.brand.primaryColor}
       />
-      <div
-        className="mt-[125px] w-full rounded-[35px] md:rounded-[40px] overflow-hidden"
-        style={{
-          backgroundColor:
-            study?.headlineImages?.length > 1
-              ? study?.brand.primaryColor
-              : "transparent",
-        }}
-      >
-        {study?.headlineImages?.length > 1 ? (
-          <div
-            className={`grid grid-cols-3 gap-[83px] max-w-[1140px] mx-auto justify-items-center`}
-          >
-            {study?.headlineImages &&
-              study.headlineImages.map((image: any, index: number) => (
-                <div
-                  key={index}
-                  className={`col-span-${study?.headlineImages.length} md:col-span-1`}
-                >
-                  <Image
-                    quality={100}
-                    unoptimized={true}
-                    src={buildImageUrl(image.url)}
-                    alt={image.alternativeText}
-                    width={400}
-                    height={300}
-                  />
-                </div>
-              ))}
-          </div>
-        ) : (
-          <div className="flex gap-[83px] w-full">
-            {study?.headlineImages &&
-              study.headlineImages.map((image: any, index: number) => (
-                <div
-                  className="flex flex-1 justify-center items-center rounded-[35px] md:rounded-[40px]"
-                  key={index}
-                >
-                  <Image
-                    quality={100}
-                    unoptimized={true}
-                    style={{
-                      width: "100%",
-                    }}
-                    src={buildImageUrl(image.url)}
-                    alt={image?.alternativeText || "Case study image"}
-                    width={1360}
-                    height={842}
-                  />
-                </div>
-              ))}
-          </div>
-        )}
-      </div>
+      <HeadlineMedia
+        headlineImages={study?.headlineImages || []}
+        primaryColor={study?.brand.primaryColor}
+      />
       <div className="pt-[114px] md:pt-[151px]">
         <TextSection title="Challenge" content={study.challenge} />
       </div>

@@ -31,10 +31,58 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+function JsonLd({ items }: { items: { name: string; slug: string }[] }) {
+  const base = "https://anfinity.bg";
+  const jsonLd: Record<string, any> = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Our Services",
+    url: `${base}/services`,
+    description:
+      "A collection of services by anfinity across web, mobile, and platforms.",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Our Services",
+          item: `${base}/services`,
+        },
+      ],
+    },
+  };
+
+  if (items?.length) {
+    jsonLd.mainEntity = {
+      "@type": "ItemList",
+      itemListElement: items.map((s, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "CreativeWork",
+          name: s.name,
+          url: `${base}/services/${s.slug}`,
+          author: { "@type": "Organization", name: "anfinity" },
+        },
+      })),
+    };
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 export default async function ServicesPage() {
   const services: any[] = await getServices();
   return (
     <div>
+      <JsonLd items={services} />
       <ListingPageHero
         title="Your digital product, from idea to launch"
         description="We offer a full range of web development services designed to create user-centric solutions that enhance the human experience. With dedication and love for our craft, we build digital products that are not only visually stunning but also highly functional and performance-driven."

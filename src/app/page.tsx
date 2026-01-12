@@ -8,18 +8,18 @@ import InfiniteLogos from "@/components/homepage/InfiniteLogos";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://anfinity.bg"),
-  title: "We craft tailor-made web and mobile products | anfinity",
+  title: "We craft user-centric web and mobile solutions | anfinity",
   description:
-    "We craft tailor-made web and mobile products that transform ideas into growth, impact, and meaningful user experiences.",
+    "We craft user-centric web and mobile solutions that transform ideas into growth, impact, and meaningful user experiences.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     url: "https://anfinity.bg/",
-    title: "We craft tailor-made web and mobile products | anfinity",
+    title: "We craft user-centric web and mobile solutions | anfinity",
     description:
-      "We craft tailor-made web and mobile products that transform ideas into growth, impact, and meaningful user experiences.",
+      "We craft user-centric web and mobile solutions that transform ideas into growth, impact, and meaningful user experiences.",
     siteName: "anfinity",
     images: [
       {
@@ -37,12 +37,13 @@ export const metadata: Metadata = {
 };
 
 function JsonLd() {
+  const base = "https://anfinity.bg";
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "anfinity",
-    url: "https://anfinity.bg",
-    logo: "https://anfinity.bg/logo.png",
+    url: base,
+    logo: `${base}/logo.png`,
     sameAs: [
       "https://www.facebook.com/profile.php?id=61579403350046",
       "https://www.linkedin.com/company/anfinity",

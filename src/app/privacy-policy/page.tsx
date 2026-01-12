@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: "https://anfinity.bg/privacy-policy",
     title: "Privacy Policy | anfinity",
     description:
-      "Anfinity’s privacy policy explains how we collect, process, and protect user data in compliance with GDPR and EU regulations.",
+      "Anfinity's privacy policy explains how we collect, process, and protect user data in compliance with GDPR and EU regulations.",
     siteName: "anfinity",
     images: [
       {

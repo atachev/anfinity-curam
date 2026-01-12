@@ -3,16 +3,16 @@ import Form from "@/components/contacts/Form";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://anfinity.bg"),
-  title: "Let’s build your product, contact us | anfinity",
+  title: "Let's build your product, contact us | anfinity",
   description:
-    "Tell us about your project. We’ll align on goals, scope, and timelines, and propose the right product team to deliver.",
+    "Tell us about your project. We'll align on goals, scope, and timelines, and propose the right product team to deliver.",
   alternates: { canonical: "/contacts" },
   openGraph: {
     type: "website",
     url: "https://anfinity.bg/contacts",
-    title: "Let’s build your product, contact us | anfinity",
+    title: "Let's build your product, contact us | anfinity",
     description:
-      "Tell us about your project. We’ll align on goals, scope, and timelines, and propose the right product team to deliver.",
+      "Tell us about your project. We'll align on goals, scope, and timelines, and propose the right product team to deliver.",
     siteName: "anfinity",
     images: [
       {

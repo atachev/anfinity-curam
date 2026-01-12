@@ -26,9 +26,47 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
 };
+
+function JsonLd() {
+  const base = "https://anfinity.bg";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Cookie Policy | anfinity",
+    url: `${base}/cookie-policy`,
+    description:
+      "Learn how Anfinity uses cookies and analytics to improve user experience and website performance. Manage your preferences anytime.",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Cookie Policy",
+          item: `${base}/cookie-policy`,
+        },
+      ],
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "anfinity",
+      url: base,
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 const CookiePolicy = () => {
   return (
     <div>
+      <JsonLd />
       <ListingPageHero
         title="Cookie policy"
         description="This Cookie Policy explains how Anfinity uses cookies and similar technologies to recognize you when you visit our website. It explains what these technologies are and why we use them, as well as your rights to control our use of them."

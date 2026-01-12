@@ -59,6 +59,58 @@ export async function generateMetadata({
   };
 }
 
+function JsonLd({ study, slug }: { study: any; slug: string }) {
+  const base = "https://anfinity.bg";
+  const canonical = `${base}/case-studies/${slug}`;
+  const jsonLd: Record<string, any> = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: study.title,
+    description: study.description,
+    url: canonical,
+    author: {
+      "@type": "Organization",
+      name: "anfinity",
+      url: base,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "anfinity",
+      url: base,
+      logo: {
+        "@type": "ImageObject",
+        url: `${base}/logo.png`,
+      },
+    },
+    datePublished: study.createdAt || new Date().toISOString(),
+    dateModified:
+      study.updatedAt || study.createdAt || new Date().toISOString(),
+  };
+
+  if (study.headlineImages?.[0]?.url) {
+    jsonLd.image = {
+      "@type": "ImageObject",
+      url: study.headlineImages[0].url,
+      width: 1200,
+      height: 630,
+    };
+  }
+
+  if (study.client?.name) {
+    jsonLd.about = {
+      "@type": "Thing",
+      name: study.client.name,
+    };
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 export default async function CaseStudyPage({
   params,
 }: {
@@ -72,6 +124,7 @@ export default async function CaseStudyPage({
 
   return (
     <div>
+      <JsonLd study={study} slug={params.slug} />
       <InnerPageHero
         title={study.title}
         client={study.client?.name}

@@ -46,7 +46,7 @@ function JsonLd({ items }: { items: { name: string; slug: string }[] }) {
         { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
         {
           "@type": "ListItem",
-          position: 1,
+          position: 2,
           name: "Our Services",
           item: `${base}/services`,
         },

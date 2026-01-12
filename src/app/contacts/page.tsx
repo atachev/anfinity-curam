@@ -26,19 +26,51 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+function JsonLd() {
+  const base = "https://anfinity.bg";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contact Us | anfinity",
+    url: `${base}/contacts`,
+    description:
+      "Tell us about your project. We'll align on goals, scope, and timelines, and propose the right product team to deliver.",
+    mainEntity: {
+      "@type": "Organization",
+      name: "anfinity",
+      url: base,
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "Customer Service",
+        url: `${base}/contacts`,
+      },
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 const Contacts = () => {
   return (
-    <div
-      className="flex flex-col rounded-b-[40px] pt-[100px] md:pt-[118px] pr-[25px] md:pr-[110px] pb-[80px] md:pb-[139px] pl-[25px] md:pl-[109px]"
-      style={{
-        minHeight: 986,
-        margin: "0 auto",
-        background: "#000",
-        color: "#fff",
-        position: "relative",
-      }}
-    >
-      <Form />
+    <div>
+      <JsonLd />
+      <div
+        className="flex flex-col rounded-b-[40px] pt-[100px] md:pt-[118px] pr-[25px] md:pr-[110px] pb-[80px] md:pb-[139px] pl-[25px] md:pl-[109px]"
+        style={{
+          minHeight: 986,
+          margin: "0 auto",
+          background: "#000",
+          color: "#fff",
+          position: "relative",
+        }}
+      >
+        <Form />
+      </div>
     </div>
   );
 };

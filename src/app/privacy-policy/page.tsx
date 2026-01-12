@@ -28,9 +28,46 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+function JsonLd() {
+  const base = "https://anfinity.bg";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Privacy Policy | anfinity",
+    url: `${base}/privacy-policy`,
+    description:
+      "Learn how Anfinity collects, stores, and protects your data. We value your privacy and comply with GDPR and EU regulations.",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Privacy Policy",
+          item: `${base}/privacy-policy`,
+        },
+      ],
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "anfinity",
+      url: base,
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 const PrivacyPolicy = () => {
   return (
     <div>
+      <JsonLd />
       <ListingPageHero
         title="Privacy policy"
         description="Anfinity Ltd. ('we', 'our', 'us') respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we collect, use, store, and protect your information when you visit our website anfinity.bg."

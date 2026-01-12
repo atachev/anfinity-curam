@@ -35,6 +35,18 @@ function JsonLd() {
     url: `${base}/contacts`,
     description:
       "Tell us about your project. We'll align on goals, scope, and timelines, and propose the right product team to deliver.",
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Contact Us",
+          item: `${base}/contacts`,
+        },
+      ],
+    },
     mainEntity: {
       "@type": "Organization",
       name: "anfinity",

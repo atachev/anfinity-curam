@@ -107,14 +107,18 @@ const ContactForm = () => {
   };
 
   const handleSubmit = async () => {
-    sendGAEvent("event", "request_a_quote_click");
+    sendGAEvent({
+      event: "buttonClicked",
+      value: "Request a quote",
+    });
+
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: "" });
 
     try {
       // Validate form
       const validationErrors = validateForm();
-      if (validationErrors.length > 0) {
+      if (validationErrors.length >  0) {
         setSubmitStatus({
           type: "error",
           message: validationErrors.join(", "),

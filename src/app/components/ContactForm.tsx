@@ -6,6 +6,7 @@ import { Input } from "@/shadcn/ui/input";
 import { Textarea } from "@/shadcn/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/shadcn/ui/radio-group";
 import { Label } from "@radix-ui/react-label";
+import { sendGAEvent } from "@next/third-parties/google";
 import WebDevelopmentSmall from "./icons/services/WebDevelopmentSmall";
 import StartupSmall from "./icons/services/StartupSmall";
 import MobileDevelopmentSmall from "./icons/services/MobileDevelopmentSmall";
@@ -71,7 +72,7 @@ const ContactForm = () => {
   const triggerRef = useRef<HTMLButtonElement | null>(null);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     // Clear any previous error messages when user starts typing
@@ -106,6 +107,7 @@ const ContactForm = () => {
   };
 
   const handleSubmit = async () => {
+    sendGAEvent("event", "request_a_quote_click");
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: "" });
 

@@ -106,6 +106,9 @@ const ContactForm = () => {
     return errors;
   };
 
+  const handleEvent = () => {
+    sendGAEvent("event", "request_a_quote_click");
+  };
   const handleSubmit = async () => {
     sendGAEvent("event", "request_a_quote_click");
 
@@ -431,7 +434,7 @@ const ContactForm = () => {
         <div className={isSubmitting ? "opacity-50 pointer-events-none" : ""}>
           <Button
             text={isSubmitting ? "Sending..." : "Request a quote"}
-            onClick={handleSubmit}
+            onClick={handleEvent}
           />
         </div>
       </div>

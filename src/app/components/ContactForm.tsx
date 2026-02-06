@@ -108,6 +108,7 @@ const ContactForm = () => {
 
   const handleEvent = () => {
     sendGAEvent("event", "request_a_quote_click");
+    console.log("request_a_quote_click");
   };
   const handleSubmit = async () => {
     sendGAEvent("event", "request_a_quote_click");

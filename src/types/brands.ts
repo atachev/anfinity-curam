@@ -3,6 +3,7 @@ import type { StaticImageData } from "next/image";
 export type Brand = {
   image: any;
   link: string;
+  name: string;
   alt: string;
 };
 

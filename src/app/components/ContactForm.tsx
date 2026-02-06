@@ -7,6 +7,16 @@ import { Textarea } from "@/shadcn/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/shadcn/ui/radio-group";
 import { Label } from "@radix-ui/react-label";
 import { sendGAEvent } from "@next/third-parties/google";
+
+/** Send GA4 event. Prefer window.gtag when available (more reliable than sendGAEvent with GTM+GA). */
+function trackGAEvent(eventName: string, params?: Record<string, unknown>) {
+  const gtag = typeof window !== "undefined" ? (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag : undefined;
+  if (typeof gtag === "function") {
+    gtag("event", eventName, params);
+  } else {
+    sendGAEvent("event", eventName, params ?? {});
+  }
+}
 import WebDevelopmentSmall from "./icons/services/WebDevelopmentSmall";
 import StartupSmall from "./icons/services/StartupSmall";
 import MobileDevelopmentSmall from "./icons/services/MobileDevelopmentSmall";
@@ -107,11 +117,11 @@ const ContactForm = () => {
   };
 
   const handleEvent = () => {
-    sendGAEvent("event", "request_a_quote_click");
+    trackGAEvent("request_a_quote_click");
     console.log("request_a_quote_click");
   };
   const handleSubmit = async () => {
-    sendGAEvent("event", "request_a_quote_click");
+    trackGAEvent("request_a_quote_click");
 
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: "" });

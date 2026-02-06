@@ -1,4 +1,6 @@
-import { Brand } from "../../../types/brands";
+"use client";
+import Link from "next/link";
+import { sendGAEvent } from "@next/third-parties/google";
 
 import BulbuildLogo from "@/components/icons/clients/Bulbuild";
 import BCNLLogo from "@/components/icons/clients/BCNL";
@@ -7,55 +9,59 @@ import BugcoffeeLogo from "@/components/icons/clients/Bugcoffee";
 import NewLevelTrainingLogo from "@/components/icons/clients/NLT";
 import NodicaStudioLogo from "@/components/icons/clients/NodicaStudio";
 import P2PCommunicationsLogo from "@/components/icons/clients/P2P";
-import YourDeliveryLogo from "@/components/icons/clients/YourDelivery";
-import Link from "next/link";
+import { Brand } from "../../../types/brands";
 
 const brands: Brand[] = [
   {
     image: <BCNLLogo />,
     link: "https://bcnl.org",
+    name: "BCNL",
     alt: "Български център за нестопанско право",
   },
   {
     image: <NovaMemorialLogo />,
     link: "https://novamemorial.com",
+    name: "Nova Memorial",
     alt: "Digital memorial book",
   },
   {
     image: <BugcoffeeLogo />,
     link: "https://bugcoffee.com",
+    name: "Bugcoffee",
     alt: "Bugcoffee Roasters",
   },
   {
     image: <BulbuildLogo />,
     link: "https://bulbuild.bg",
+    name: "Bulbuild",
     alt: "Bulbuild group",
   },
   {
     image: <NewLevelTrainingLogo />,
     link: "https://newleveltraining.bg",
+    name: "NLT",
     alt: "NLT personal trainers",
   },
   {
     image: <P2PCommunicationsLogo />,
     link: "https://p2pcommunications.bg",
+    name: "P2P",
     alt: "PR & Marketing agency",
   },
   {
     image: <NodicaStudioLogo />,
     link: "https://nodicastudio.bg",
+    name: "Nodica Studio",
     alt: "Architecture & design",
   },
-  // {
-  //   image: <YourDeliveryLogo />,
-  //   link: "https://yourdelivery.ie",
-  //   alt: "Your Delivery",
-  // },
 ];
 
 const InfiniteLogoSlider = () => {
   const mobileRow1 = brands.filter((_, i) => i % 2 === 0);
   const mobileRow2 = brands.filter((_, i) => i % 2 !== 0);
+  const handleClick = (name: string) => {
+    sendGAEvent("event", "logo_click", { value: name });
+  };
   return (
     <div className="relative overflow-hidden w-full mt-[57px] md:mt-[50px]">
       {/* Blur for left and right (desktop only) */}
@@ -67,6 +73,7 @@ const InfiniteLogoSlider = () => {
         <div className="ticker-track flex flex-row items-center justify-start min-w-[100%]">
           {brands.map((brand, i) => (
             <Link
+              onClick={() => handleClick(brand.name)}
               key={`desk-a-${i}`}
               href={brand.link}
               rel="noopener noreferrer external"
@@ -82,6 +89,7 @@ const InfiniteLogoSlider = () => {
         <div className="ticker-track flex flex-row items-center justify-start min-w-[100%]">
           {brands.map((brand, i) => (
             <Link
+              onClick={() => handleClick(brand.name)}
               key={`desk-a-${i}`}
               href={brand.link}
               rel="noopener noreferrer external"
@@ -100,6 +108,7 @@ const InfiniteLogoSlider = () => {
         <div className="ticker-track flex flex-row items-center justify-start min-w-[80%]">
           {mobileRow1.map((brand, i) => (
             <Link
+              onClick={() => handleClick(brand.name)}
               key={`desk-a-${i}`}
               href={brand.link}
               rel="noopener noreferrer external"
@@ -114,6 +123,7 @@ const InfiniteLogoSlider = () => {
         <div className="ticker-track flex flex-row items-center justify-start min-w-[80%]">
           {mobileRow1.map((brand, i) => (
             <Link
+              onClick={() => handleClick(brand.name)}
               key={`desk-a-${i}`}
               href={brand.link}
               rel="noopener noreferrer external"
@@ -130,6 +140,7 @@ const InfiniteLogoSlider = () => {
         <div className="ticker-track-reverse flex flex-row items-center justify-start min-w-[80%]">
           {mobileRow2.map((brand, i) => (
             <Link
+              onClick={() => handleClick(brand.name)}
               key={`desk-a-${i}`}
               href={brand.link}
               rel="noopener noreferrer external"
@@ -144,6 +155,7 @@ const InfiniteLogoSlider = () => {
         <div className="ticker-track-reverse flex flex-row items-center justify-start min-w-[80%]">
           {mobileRow2.map((brand, i) => (
             <Link
+              onClick={() => handleClick(brand.name)}
               key={`desk-a-${i}`}
               href={brand.link}
               rel="noopener noreferrer external"

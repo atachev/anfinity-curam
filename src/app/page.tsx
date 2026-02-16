@@ -8,7 +8,7 @@ import InfiniteLogos from "@/components/homepage/InfiniteLogos";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://anfinity.bg"),
-  title: "We craft user-centric web and mobile solutions | anfinity",
+  title: "We craft user-centric web and mobile solutions",
   description:
     "We craft user-centric web and mobile solutions that transform ideas into growth, impact, and meaningful user experiences.",
   alternates: {

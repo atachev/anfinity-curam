@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import Arrow from "../icons/Arrow";
+import { buildImageUrl } from "@/lib/utils";
 
 interface BlogPostCardProps {
-  category: string;
+  categories: Array<any>;
   title: string;
   description: string;
   readTime: string;
@@ -12,7 +13,7 @@ interface BlogPostCardProps {
 }
 
 const BlogPostCard = ({
-  category,
+  categories,
   title,
   description,
   readTime,
@@ -20,13 +21,14 @@ const BlogPostCard = ({
   href,
 }: BlogPostCardProps) => {
   return (
-    <Link href={"/blog/upgrade-legacy-system"} className="block group">
+    <Link href={`blog/${href}`} className="block group">
       <div>
         <div className="relative w-full h-[251px]">
           <div className="w-full h-full bg-[#F8F8F8] rounded-[35px] overflow-hidden">
             {image && (
               <Image
-                src={image}
+                fill
+                src={buildImageUrl(image?.url)}
                 alt={title}
                 className="w-full rounded-[35px] transition-transform duration-500 ease-in-out group-hover:scale-[1.05]"
               />
@@ -35,7 +37,7 @@ const BlogPostCard = ({
         </div>
         <div className="mt-[40px]">
           <span className="text-[#8F8F8F] font-poppins font-normal text-base leading-[100%] tracking-[0%]">
-            {category}
+            {categories?.map((category: any) => category.name).join(", ")}
           </span>
           <h3 className="mt-[12px] text-[#1A1A1A] group-hover:text-[#E51D28] transition-colors duration-500 Gilroy-Bold font-bold text-[25px] leading-[28px] tracking-[-1%]">
             {title}

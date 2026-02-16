@@ -1,13 +1,15 @@
+import Link from "next/link";
+import Image from "next/image";
+import { buildImageUrl } from "@/lib/utils";
 import Heading from "../Heading";
 import Arrow from "../icons/Arrow";
 import Text from "@/components/Text";
-import Link from "next/link";
-import Image from "next/image";
 
 interface FeaturedCardProps {
   category: string;
   title: string;
   description: string;
+  timeToRead: string;
   href: string;
   image: any;
 }
@@ -15,6 +17,7 @@ const FeaturedCard = ({
   category,
   title,
   description,
+  timeToRead,
   href,
   image,
 }: FeaturedCardProps) => {
@@ -33,23 +36,26 @@ const FeaturedCard = ({
         >
           {title}
         </Heading>
-        <Text className="mt-[17px]">{description}</Text>
+        <Text className="mt-[17px] text-[#1A1A1A] font-poppins font-light text-base leading-[22px] tracking-[0%]">{description}</Text>
         <div className="flex mt-[34px] items-center">
           <span className="font-poppins font-semibold text-base leading-[24px] tracking-[0%] text-[#E51D28]">
-            4 min. read
+            {timeToRead}
           </span>
           <div className="ml-[30px]">
             <Arrow color={"#E51D28"} />
           </div>
         </div>
       </div>
-      <div className="order-0 md:order-1">
-        <div className="w-full bg-[#F8F8F8] rounded-[35px] overflow-hidden">
-          <Image
-            src={image}
-            alt={`${title} feature image`}
-            className="rounded-[35px] transition-transform duration-500 ease-in-out group-hover:scale-[1.05]"
-          />
+      <div className="flex-1 order-0 md:order-1">
+        <div className="w-full h-full bg-[#F8F8F8] rounded-[35px] md:rounded-[40px] overflow-hidden relative">
+          {image && (
+            <Image
+              fill
+              src={buildImageUrl(image?.url)}
+              alt={`${title} feature post image`}
+              className="rounded-[35px] transition-transform duration-500 ease-in-out group-hover:scale-[1.05]"
+            />
+          )}
         </div>
       </div>
     </Link>

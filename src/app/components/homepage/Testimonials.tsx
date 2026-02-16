@@ -16,7 +16,7 @@ const Testimonials = ({ clients }: { clients: any }) => {
         (client?.testimonials || []).map((testimonial: any) => ({
           ...testimonial,
           clientIcon: client?.icon,
-        }))
+        })),
       );
       setTestimonials(allTestimonials);
     } else {
@@ -36,7 +36,7 @@ const Testimonials = ({ clients }: { clients: any }) => {
 
   const prevTestimonial = () => {
     setIndex(
-      (prev) => (prev - 1 + testimonials?.length) % testimonials?.length
+      (prev) => (prev - 1 + testimonials?.length) % testimonials?.length,
     );
   };
 
@@ -120,7 +120,7 @@ const Testimonials = ({ clients }: { clients: any }) => {
                     src={buildImageUrl(
                       clients?.length > 0
                         ? testimonials[index]?.clientIcon?.url
-                        : clients?.icon?.url
+                        : clients?.icon?.url,
                     )}
                     alt={testimonials && testimonials[index]?.name}
                     width={57}

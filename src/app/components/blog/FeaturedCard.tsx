@@ -23,7 +23,7 @@ const FeaturedCard = ({
 }: FeaturedCardProps) => {
   return (
     <Link
-      href={href}
+      href={`blog/${href}`}
       className="flex flex-col md:flex-row max-w-[1140px] mx-auto mt-[78px] md:mt-[142px] group"
     >
       <div className="flex-1 md:pr-[125px] order-1 md:order-0 mt-[40px] md:mt-[0]">

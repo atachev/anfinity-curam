@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import dayjs from "dayjs";
@@ -17,9 +18,57 @@ interface BlogPost {
   shortDescription: string;
 }
 
+const BASE_URL = "https://anfinity.bg";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const postData = await getBlogPostBySlug(params.slug);
+  const post = postData?.[0];
+
+  if (!post) {
+    return {
+      title: "Post not found",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const canonical = `${BASE_URL}/blog/${params.slug}`;
+  const description =
+    post.shortDescription ?? post.shortDescription ?? undefined;
+  const coverUrl = post.cover?.url
+    ? buildImageUrl(post.cover.url)
+    : `${BASE_URL}/og-image.jpg`;
+
+  return {
+    metadataBase: new URL(BASE_URL),
+    title: `${post.title}`,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      url: canonical,
+      title: `${post.title}`,
+      description,
+      siteName: "anfinity",
+      images: [
+        {
+          url: coverUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      locale: "en_US",
+    },
+    robots: { index: true, follow: true },
+  };
+}
+
 function JsonLd({ post, slug }: { post: BlogPost; slug: string }) {
-  const base = "https://anfinity.bg";
-  const canonical = `${base}/blog/${slug}`;
+  const canonical = `${BASE_URL}/blog/${slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -33,10 +82,10 @@ function JsonLd({ post, slug }: { post: BlogPost; slug: string }) {
     publisher: {
       "@type": "Organization",
       name: "anfinity",
-      url: base,
+      url: BASE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${base}/logo.png`,
+        url: `${BASE_URL}/logo.png`,
       },
     },
     datePublished: post.date || new Date().toISOString(),

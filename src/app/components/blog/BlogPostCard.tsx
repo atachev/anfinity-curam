@@ -27,6 +27,8 @@ const BlogPostCard = ({
           <div className="w-full h-full bg-[#F8F8F8] rounded-[35px] overflow-hidden">
             {image && (
               <Image
+                quality={100}
+                unoptimized={true}
                 fill
                 src={buildImageUrl(image?.url)}
                 alt={title}

@@ -100,7 +100,9 @@ export default async function BlogPost({
               if (!coverUrl) return null;
               return (
                 <Image
-                fill
+                  quality={100}
+                  unoptimized={true}
+                  fill
                   src={buildImageUrl(coverUrl)}
                   alt={currentPost.title ?? "Blog post cover"}
                   className="rounded-[35px] object-cover"

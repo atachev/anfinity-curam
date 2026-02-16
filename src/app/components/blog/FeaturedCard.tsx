@@ -51,9 +51,11 @@ const FeaturedCard = ({
           {image && (
             <Image
               fill
+              quality={100}
+              unoptimized={true}
               src={buildImageUrl(image?.url)}
               alt={`${title} feature post image`}
-              className="rounded-[35px] transition-transform duration-500 ease-in-out group-hover:scale-[1.05]"
+              className="rounded-[35px] md:rounded-[40px] transition-transform duration-500 ease-in-out group-hover:scale-[1.05]"
             />
           )}
         </div>

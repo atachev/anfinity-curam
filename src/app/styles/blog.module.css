@@ -1,6 +1,7 @@
 .content {
   & h2 {
-    @apply font-poppins text-[18px] leading-[22px] font-[600] mt-[64px] text-[#E51D28];
+    font-family: var(--font-poppins), sans-serif;
+    @apply text-[18px] leading-[22px] font-[600] mt-[64px] text-[#E51D28];
   }
   & p {
     @apply font-[300] text-[16px] leading-[22px] mt-[24px];

@@ -4,6 +4,7 @@
     @apply text-[18px] leading-[22px] font-[600] mt-[64px] text-[#E51D28];
   }
   & p {
+    font-family: var(--font-poppins), sans-serif;
     @apply font-[300] text-[16px] leading-[22px] mt-[24px];
   }
   & h3 {
@@ -11,5 +12,9 @@
   }
   & strong {
     font-weight: 600;
+  }
+  & ul li {
+    font-family: var(--font-poppins), sans-serif;
+    @apply font-[300] text-[16px] leading-[22px];
   }
 }
